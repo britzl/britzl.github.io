@@ -1,0 +1,21 @@
+[project]
+title = Albus Academy
+version = 0.1
+dependencies = https://github.com/britzl/ludobits/archive/master.zip
+
+[bootstrap]
+main_collection = /game/game.collectionc
+
+[input]
+game_binding = /input/game.input_bindingc
+
+[display]
+width = 1136
+height = 640
+
+[physics]
+scale = 0.02
+
+[script]
+shared_state = 1
+
