@@ -1,0 +1,31 @@
+[project]
+title = Numberz
+
+[bootstrap]
+main_collection = /numberz/numberz.collectionc
+
+[input]
+game_binding = /input/game.input_bindingc
+
+[display]
+width = 640
+height = 1136
+
+[script]
+shared_state = 1
+
+[ios]
+bundle_identifier = com.example.todo
+
+[osx]
+bundle_identifier = com.example.todo
+
+[physics]
+debug = 0
+
+[sprite]
+max_count = 400
+
+[label]
+max_count = 100
+
