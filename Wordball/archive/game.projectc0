@@ -30,7 +30,7 @@ include_dirs =
 
 [android]
 package = com.britzl.wordball
-manifest = /AndroidManifest.xml
+manifest = 
 
 [ios]
 bundle_identifier = com.britzl.wordball
