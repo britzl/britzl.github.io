@@ -1,0 +1,26 @@
+[project]
+title = Lifestories
+custom_resources = assets/stories
+
+[bootstrap]
+main_collection = /lifestory/story.collectionc
+
+[input]
+game_binding = /input/game.input_bindingc
+
+[display]
+width = 640
+height = 1136
+
+[script]
+shared_state = 1
+
+[ios]
+bundle_identifier = com.midasplayer.lifestories
+
+[osx]
+bundle_identifier = com.midasplayer.lifestories
+
+[android]
+package = com.midasplayer.lifestories
+
