@@ -1,0 +1,20 @@
+[project]
+title = Chipmunk2D
+version = 0.2
+
+[script]
+shared_state = 1
+
+[library]
+include_dirs = chipmunk
+
+[display]
+width = 1136
+height = 640
+
+[bootstrap]
+main_collection = /example/example.collectionc
+
+[native_extension]
+app_manifest = /release.appmanifest
+
