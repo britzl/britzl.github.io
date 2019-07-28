@@ -5,7 +5,7 @@ write_log = 0
 compress_archive = 1
 
 [display]
-width = 1136
+width = 800
 height = 640
 high_dpi = 0
 samples = 0
@@ -19,7 +19,7 @@ dynamic_orientation = 0
 type = 2D
 gravity_y = -1000.0
 debug = 0
-debug_alpha = 0.9
+debug_alpha = 0.6
 world_count = 4
 gravity_x = 0
 gravity_z = 0
@@ -33,7 +33,7 @@ ray_cast_limit_3d = 128
 trigger_overlap_capacity = 16
 
 [bootstrap]
-main_collection = /game/game.collectionc
+main_collection = /controller/controller.collectionc
 render = /orthographic/render/orthographic.renderc
 
 [graphics]
@@ -104,7 +104,6 @@ iap_provider = GooglePlay
 input_method = HiddenInputField
 immersive_mode = 0
 debuggable = 0
-proguard = /builtins/manifests/android/dmengine.pro
 gcm_sender_id = 
 
 [osx]
