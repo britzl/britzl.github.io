@@ -9,7 +9,7 @@ width = 1136
 height = 640
 high_dpi = 0
 samples = 0
-fullscreen = 1
+fullscreen = 0
 update_frequency = 0
 vsync = 1
 display_profiles = /builtins/render/default.display_profilesc
@@ -26,7 +26,7 @@ type = 2D
 gravity_y = -10
 debug = 0
 debug_alpha = 0.9
-world_count = 4
+world_count = 1
 gravity_x = 0
 gravity_z = 0
 scale = 0.02
@@ -52,14 +52,14 @@ texture_profiles = /builtins/graphics/default.texture_profiles
 
 [sound]
 gain = 1
-max_sound_data = 128
-max_sound_buffers = 32
-max_sound_sources = 16
-max_sound_instances = 256
+max_sound_data = 0
+max_sound_buffers = 0
+max_sound_sources = 0
+max_sound_instances = 0
 
 [resource]
 http_cache = 0
-max_resources = 1024
+max_resources = 64
 
 [input]
 repeat_delay = 0.5
@@ -69,14 +69,14 @@ game_binding = /input/game.input_bindingc
 use_accelerometer = 1
 
 [sprite]
-max_count = 128
+max_count = 10
 subpixels = 1
 
 [spine]
-max_count = 128
+max_count = 0
 
 [model]
-max_count = 128
+max_count = 0
 
 [gui]
 max_count = 64
@@ -84,16 +84,16 @@ max_particlefx_count = 64
 max_particle_count = 1024
 
 [collection]
-max_instances = 1024
+max_instances = 20
 
 [collection_proxy]
-max_count = 8
+max_count = 1
 
 [collectionfactory]
-max_count = 128
+max_count = 0
 
 [factory]
-max_count = 128
+max_count = 2
 
 [ios]
 pre_renderered_icons = 0
@@ -123,13 +123,13 @@ heap_size = 20
 htmlfile = /builtins/manifests/web/engine_template.html
 cssfile = /builtins/manifests/web/light_theme.css
 archive_location_prefix = archive
-show_fullscreen_button = 1
-show_made_with_defold = 1
+show_fullscreen_button = 0
+show_made_with_defold = 0
 scale_mode = fit
 
 [particle_fx]
-max_count = 64
-max_particle_count = 1024
+max_count = 0
+max_particle_count = 0
 
 [iap]
 auto_finish_transactions = 1
@@ -143,7 +143,7 @@ http_timeout = 0
 shared_state = 1
 
 [label]
-max_count = 64
+max_count = 1
 subpixels = 1
 
 [profiler]
