@@ -5,8 +5,8 @@ write_log = 0
 compress_archive = 1
 
 [display]
-width = 320
-height = 240
+width = 240
+height = 320
 high_dpi = 0
 samples = 0
 fullscreen = 0
