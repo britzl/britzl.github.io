@@ -1,0 +1,25 @@
+{
+  "version": "1.0.0",
+  "name": "Kai Pong",
+  "description": "A simple Pong game for Kai OS",
+  "type": "web",
+  "launch_path": "/index.html",
+  "icons": {
+    "56": "/icons/icon_56.png",
+    "112": "/icons/icon_112.png"
+  },
+  "developer": {
+    "name": "Defold",
+    "url": "https://www.defold.com"
+  },
+  "locales": {
+    "en-US": {
+      "name": "Kai Pong",
+      "subtitle": "Short description for the user",
+      "description": "Brief description of your app"
+    }
+  },
+  "default_locale": "en-US",
+  "fullscreen": "true",
+  "precompile": [ "KaiPong_asmjs.js", "dmloader.js" ]
+}
