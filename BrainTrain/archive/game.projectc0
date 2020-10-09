@@ -1,10 +1,11 @@
 [project]
 title = BrainTrain
-version = 1.0
+version = 0.1.0
 write_log = 0
 compress_archive = 1
 publisher = unnamed
 developer = unnamed
+custom_resources = levels/
 
 [display]
 width = 960
