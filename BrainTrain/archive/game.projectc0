@@ -1,6 +1,6 @@
 [project]
 title = BrainTrain
-version = 0.5.0
+version = 0.6.0
 write_log = 0
 compress_archive = 1
 publisher = unnamed
@@ -66,6 +66,7 @@ max_sound_buffers = 32
 max_sound_sources = 16
 max_sound_instances = 256
 max_component_count = 32
+use_thread = 1
 
 [resource]
 http_cache = 0
@@ -79,7 +80,7 @@ game_binding = /input/game.input_bindingc
 use_accelerometer = 1
 
 [sprite]
-max_count = 1000
+max_count = 1400
 subpixels = 1
 
 [spine]

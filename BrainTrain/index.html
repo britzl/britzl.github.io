@@ -7,7 +7,7 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-	<title>BrainTrain 0.5.0</title>
+	<title>BrainTrain 0.6.0</title>
 	<style type='text/css'>
 	/* Disable user selection to avoid strange bug in Chrome on Windows:
 	* Selecting a text outside the canvas, then clicking+draging would
@@ -226,20 +226,10 @@
 	resize_game_canvas();
 	window.addEventListener('resize', resize_game_canvas, false);
 	window.addEventListener('orientationchange', resize_game_canvas, false);
-
-	function load_engine() {
-		var engineJS = document.createElement('script');
-		engineJS.type = 'text/javascript';
-		if (Module['isWASMSupported']) {
-			engineJS.src = 'BrainTrain_wasm.js';
-		} else {
-			engineJS.src = 'BrainTrain_asmjs.js';
-		}
-		document.head.appendChild(engineJS);
-	}
 	</script>
+
 	<script id='engine-start' type='text/javascript'>
-		load_engine();
+		EngineLoader.load("canvas", "BrainTrain");
 	</script>
 </body>
 </html>
