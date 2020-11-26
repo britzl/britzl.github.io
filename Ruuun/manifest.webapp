@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Ruuun",
-  "description": "A simple runner game for Kai OS",
+  "description": "Run, dash, dodge and jump for as long as you can!",
   "type": "web",
   "launch_path": "/index.html",
   "icons": {
@@ -9,8 +9,8 @@
     "112": "/icons/icon_112.png"
   },
   "developer": {
-    "name": "Defold",
-    "url": "https://www.defold.com"
+    "name": "Refold",
+    "url": "https://www.refold.io"
   },
   "locales": {
     "en-US": {
@@ -21,5 +21,5 @@
   },
   "default_locale": "en-US",
   "fullscreen": "true",
-  "precompile": [ "KaiRunner_asmjs.js", "dmloader.js" ]
+  "precompile": [ "Ruuun_asmjs.js", "dmloader.js" ]
 }
