@@ -8,8 +8,8 @@ developer = unnamed
 title_as_file_name = Stairs
 
 [display]
-width = 960
-height = 640
+width = 640
+height = 1136
 high_dpi = 0
 samples = 0
 fullscreen = 0
