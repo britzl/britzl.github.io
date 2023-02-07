@@ -28,6 +28,7 @@ clear_color_alpha = 0
 
 [physics]
 type = 3D
+max_collision_object_count = 256
 use_fixed_timestep = 0
 gravity_y = -10
 debug = 0
@@ -89,7 +90,7 @@ max_count = 128
 subpixels = 1
 
 [model]
-max_count = 128
+max_count = 256
 split_meshes = 0
 
 [mesh]
