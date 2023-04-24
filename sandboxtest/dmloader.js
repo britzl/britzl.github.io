@@ -187,7 +187,7 @@ var EngineLoader = {
             function(response) {
                 var tag = document.createElement("script");
                 tag.text = response;
-                document.head.appendChild(tag);
+                document.body.appendChild(tag);
             });
     },
 
