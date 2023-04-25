@@ -755,6 +755,9 @@ var Module = {
     // Tries to do a MEM->IDB sync
     // It will flag that another one is needed if there is already one sync running.
     persistentSync: function() {
+        if (Module.persistentStorage != true) {
+            return;
+        }
         // Need to wait for the initial sync to finish since it
         // will call close on all its file streams which will trigger
         // new persistentSync for each.
@@ -836,9 +839,6 @@ var Module = {
     // Wrap IDBFS syncfs call with logic to avoid multiple syncs
     // running at the same time.
     _startSyncFS: function() {
-        if (Module.persistentStorage != true) {
-            return;
-        }
         Module._syncInProgress = true;
 
         if (Module._syncMaxTries > Module._syncTries) {
