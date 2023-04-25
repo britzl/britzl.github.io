@@ -768,7 +768,13 @@ var Module = {
     },
 
     preInit: [function() {
-        if (Module.persistentStorage != true) {
+        // Mount filesystem on preinit
+        var dir = DMSYS.GetUserPersistentDataRoot();
+        try {
+            FS.mkdir(dir);
+        }
+        catch (error) {
+            Module.persistentStorage = false;
             Module._preloadAndCallMain();
             return;
         }
@@ -777,9 +783,6 @@ var Module = {
         // then try to do a IDB->MEM sync before we start the engine to get
         // previously saved data before boot.
         try {
-            /* Mount filesystem on preinit */
-            var dir = DMSYS.GetUserPersistentDataRoot();
-            FS.mkdir(dir);
             FS.mount(IDBFS, {}, dir);
             // Patch FS.close so it will try to sync MEM->IDB
             var _close = FS.close;
@@ -791,13 +794,14 @@ var Module = {
         }
         catch (error) {
             Module.persistentStorage = false;
+            Module._preloadAndCallMain();
+            return;
         }
-        finally {
-            // Sync IDB->MEM before calling main()
-            Module.preSync(function() {
-                Module._preloadAndCallMain();
-            });
-        }
+
+        // Sync IDB->MEM before calling main()
+        Module.preSync(function() {
+            Module._preloadAndCallMain();
+        });
     }],
 
     preRun: [function() {
