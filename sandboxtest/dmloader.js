@@ -716,9 +716,14 @@ var Module = {
     },
 
     preSync: function(done) {
+        if (Module.persistentStorage != true) {
+            Module._syncInitial = true;
+            done();
+            return;
+        }
         // Initial persistent sync before main is called
         FS.syncfs(true, function(err) {
-            if(err) {
+            if (err) {
                 Module._syncTries += 1;
                 console.error("FS syncfs error: " + err);
                 if (Module._syncMaxTries > Module._syncTries) {
@@ -750,7 +755,6 @@ var Module = {
     // Tries to do a MEM->IDB sync
     // It will flag that another one is needed if there is already one sync running.
     persistentSync: function() {
-
         // Need to wait for the initial sync to finish since it
         // will call close on all its file streams which will trigger
         // new persistentSync for each.
@@ -764,30 +768,35 @@ var Module = {
     },
 
     preInit: [function() {
-        /* Mount filesystem on preinit */
-        var dir = DMSYS.GetUserPersistentDataRoot();
-        FS.mkdir(dir);
+        if (Module.persistentStorage != true) {
+            Module._preloadAndCallMain();
+            return;
+        }
 
         // If IndexedDB is supported we mount the persistent data root as IDBFS,
         // then try to do a IDB->MEM sync before we start the engine to get
         // previously saved data before boot.
-        // NOTE: If window.indexedDB is modified when running in an iframe the 
-        // browser will throw a 
-        if (window.self === window.top) {
-            window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
-        }
-        if (Module.persistentStorage && window.indexedDB) {
+        try {
+            /* Mount filesystem on preinit */
+            var dir = DMSYS.GetUserPersistentDataRoot();
+            FS.mkdir(dir);
             FS.mount(IDBFS, {}, dir);
-
             // Patch FS.close so it will try to sync MEM->IDB
-            var _close = FS.close; FS.close = function(stream) { var r = _close(stream); Module.persistentSync(); return r; }
-
+            var _close = FS.close;
+            FS.close = function(stream) {
+                var r = _close(stream);
+                Module.persistentSync();
+                return r;
+            }
+        }
+        catch (error) {
+            Module.persistentStorage = false;
+        }
+        finally {
             // Sync IDB->MEM before calling main()
             Module.preSync(function() {
                 Module._preloadAndCallMain();
             });
-        } else {
-            Module._preloadAndCallMain();
         }
     }],
 
@@ -823,6 +832,9 @@ var Module = {
     // Wrap IDBFS syncfs call with logic to avoid multiple syncs
     // running at the same time.
     _startSyncFS: function() {
+        if (Module.persistentStorage != true) {
+            return;
+        }
         Module._syncInProgress = true;
 
         if (Module._syncMaxTries > Module._syncTries) {
