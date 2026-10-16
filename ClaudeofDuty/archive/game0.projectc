@@ -29,9 +29,10 @@ clear_color_red = 0.66
 clear_color_green = 0.74
 clear_color_blue = 0.77
 clear_color_alpha = 1.0
+material_quality = medium
 
 [physics]
-max_collision_object_count = 512
+max_collision_object_count = 2000
 type = 3D
 use_fixed_timestep = 1
 debug = 0
@@ -123,7 +124,7 @@ max_morph_target_texture_width = 1024
 max_morph_target_texture_height = 1024
 
 [mesh]
-max_count = 256
+max_count = 640
 
 [light]
 max_count = 64
@@ -136,7 +137,7 @@ max_particlefx_count = 64
 safe_area_mode = none
 
 [collection]
-max_instances = 1024
+max_instances = 2048
 max_input_stack_entries = 16
 
 [collection_proxy]
